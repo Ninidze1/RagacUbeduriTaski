@@ -35,7 +35,6 @@ class MainViewModel : ViewModel() {
         if (result.isSuccessful) {
             val item = result.body()
             inputLiveData.postValue(item)
-
         }
     }
 

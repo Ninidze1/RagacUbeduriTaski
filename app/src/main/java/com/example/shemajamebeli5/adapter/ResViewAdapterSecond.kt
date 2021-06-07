@@ -7,6 +7,7 @@ import android.util.Log.d
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import android.widget.ArrayAdapter
+import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 import com.example.shemajamebeli5.InputModel
 import com.example.shemajamebeli5.R
@@ -25,6 +26,7 @@ class ResViewAdapterSecond(private val fields: List<InputModel>): RecyclerView.A
 
             binding.editText.id = input.id
             binding.editText.hint = input.hint
+
 
             when (input.keyboard) {
                 "number" -> binding.editText.inputType = InputType.TYPE_CLASS_NUMBER

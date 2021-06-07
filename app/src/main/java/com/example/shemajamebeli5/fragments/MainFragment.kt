@@ -29,6 +29,8 @@ class MainFragment : Fragment() {
     private val viewModel: MainViewModel by viewModels()
     private lateinit var adapter: ResViewAdapter
 
+    var inputMap: MutableMap<String ,String> = mutableMapOf()
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -60,20 +62,18 @@ class MainFragment : Fragment() {
     }
 
     private fun saveFields()  {
-
     }
 
     private fun check() {
         binding.button.setOnClickListener {
             binding.recyclerView.children.forEach {
                 it.findViewById<RecyclerView>(R.id.secondRecycler).children.forEach { fields ->
-                    val inputText = fields.findViewById<EditText>(R.id.editText)
-//                    if (inputText.text.toString() in )
+                    val field = fields.findViewById<EditText>(R.id.editText)
+                    d("tagtag", "${field.text}")
                 }
             }
-
+            d("loglog", "$inputMap")
         }
-
     }
 
     private fun observers() {
