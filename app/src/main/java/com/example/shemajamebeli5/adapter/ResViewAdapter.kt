@@ -6,17 +6,24 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.shemajamebeli5.InputModel
 import com.example.shemajamebeli5.databinding.InputItemBinding
-import kotlin.coroutines.coroutineContext
 
 class ResViewAdapter: RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
-    val items = mutableListOf<InputModel>()
+    val items = mutableListOf<List<InputModel>>()
+
     inner class ViewHolder(private var binding: InputItemBinding) : RecyclerView.ViewHolder(binding.root) {
-        private lateinit var SecondList: ResViewAdapterSecond
+
+        private lateinit var childAdapter: ResViewAdapterSecond
+
         fun bind() {
-            SecondList = ResViewAdapterSecond()
-            binding.secondRecycler.layoutManager = LinearLayoutManager(itemView.context)
-            binding.secondRecycler.adapter = SecondList
+
+            childAdapter = ResViewAdapterSecond(items[absoluteAdapterPosition].toMutableList())
+
+            binding.secondRecycler.layoutManager = LinearLayoutManager(binding.secondRecycler.context)
+            binding.secondRecycler.adapter = childAdapter
+
+
+
         }
     }
 
@@ -30,11 +37,11 @@ class ResViewAdapter: RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
     override fun getItemCount(): Int = items.size
 
-    fun addItems(items: MutableList<InputModel>) {
+    fun addItems(items: MutableList<List<InputModel>>) {
         this.items.clear()
         this.items.addAll(items)
         notifyDataSetChanged()
-
     }
+
 
 }

@@ -1,16 +1,16 @@
 package com.example.shemajamebeli5
 
-import com.squareup.moshi.Json
+import com.google.gson.annotations.SerializedName
 
 data class InputModel(
-    @Json(name = "field_id")
+    @SerializedName("field_id")
     val id: Int,
-    @Json(name = "field_type")
+    @SerializedName("field_type")
     val fieldType: String,
     val hint: String,
     val icon: String,
-    @Json(name = "is_active")
+    @SerializedName("is_active")
     val active: Boolean,
-    val keyboard: String,
-    val required: String
+    val keyboard: String? = "",
+    val required: Boolean
 )

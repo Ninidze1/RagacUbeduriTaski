@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="gender">
+        <item>Male</item>
+        <item>Female</item>
+
+    </string-array>
+
+    <string-array name="date">
+        <item>2021/07/01</item>
+        <item>2021/08/03</item>
+        <item>2021/09/7</item>
+        <item>2021/09/28</item>
+        <item>2021/10/20</item>
+        <item>2021/09/29</item>
+
+    </string-array>
+</resources>
+
